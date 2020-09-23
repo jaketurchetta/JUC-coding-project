@@ -7,15 +7,15 @@ const EntryForm = ({ handleSubmit, handleChange, name, email, birthDate, toggleC
   <form onSubmit={e => handleSubmit(e)}>
     <FormWrapper>
       <InputDiv>
-        <label htmlFor="name">Name</label>
-        <input id="name" name="name" value={name} onChange={handleChange} placeholder="John Smith" required />
+        <Labels htmlFor="name">Name</Labels>
+        <input id="name" name="name" type="text" value={name} onChange={handleChange} placeholder="John Smith" required />
       </InputDiv>
       <InputDiv>
-        <label htmlFor="email">Email</label>
-        <input id="email" name="email" value={email} onChange={handleChange} placeholder="example@email.com" required />
+        <Labels htmlFor="email">Email</Labels>
+        <input id="email" name="email" type="text" value={email} onChange={handleChange} placeholder="example@email.com" required />
       </InputDiv>
       <InputDiv>
-        <label htmlFor="birthDate">Birth date</label>
+        <Labels htmlFor="birthDate">Birth date</Labels>
         <input id="birthDate" name="birthDate" type="date" value={birthDate} onChange={handleChange} />
       </InputDiv>
       <CheckboxDiv>
@@ -23,8 +23,8 @@ const EntryForm = ({ handleSubmit, handleChange, name, email, birthDate, toggleC
         <label htmlFor="emailConsent">I agree to be contacted via email.</label>
       </CheckboxDiv>
       <ButtonsDiv>
-        <button type="reset" onClick={handleClear}>Clear</button>
-        <button type="submit">Submit</button>
+        <ClearButton type="reset" onClick={handleClear}>Clear</ClearButton>
+        <SubmitButton type="submit">Submit</SubmitButton>
       </ButtonsDiv>
     </FormWrapper>
   </form>
@@ -39,18 +39,49 @@ const FormWrapper = styled.div`
 const InputDiv = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: flex-start;
+  margin-bottom: 15px;
 `
 
 const CheckboxDiv = styled.div`
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: flex-start;
 `
 
 const ButtonsDiv = styled.div`
   display: flex;
-  justify-content: right;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+`
+
+const Labels = styled.label`
+  margin-bottom: 5px;
+`
+
+const ClearButton = styled.button`
+  background: #c93131;
+  border: 0px;
+  border-radius: 5px;
+  height 50px;
+  width: 90px;
+  margin-right: 10px;
+  color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 20px;
+`
+
+const SubmitButton = styled.button`
+  background: #189a1c;
+  border: 0px;
+  border-radius: 5px;
+  height 50px;
+  width: 90px;
+  margin-right: 10px;
+  color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 20px;
 `
 
 export default EntryForm
